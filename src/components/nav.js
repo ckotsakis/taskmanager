@@ -9,7 +9,7 @@ const Nav = props => {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a className="navbar-brand" href="#"><i className="far fa-check-square"></i> Task Manager</a>
+                <a className="navbar-brand" href="#">Task Manager</a>
             
             </div>
         </div>
