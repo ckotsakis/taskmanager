@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Task from './components/task'
-import Nav from './components/nav'
-import '../node_modules/font-awesome/css/font-awesome.min.css';
+import Task from './components/task';
+import Nav from './components/nav';
+import SearchBar from './components/SearchBar';
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+
+//Create the library
+library.add(fab,fas);
 
 class App extends React.Component {
 
-
+  
   render() {
     return (
       <div>
@@ -22,11 +29,12 @@ class App extends React.Component {
             <div className="col-sm-5">
               <h3>Tasks</h3>
               <hr/>
-              
+              <SearchBar/>
+              <br/>
               <Task/>
             </div>
             <div className="col-sm-4">
-              column 3
+           
             </div>
           </div>
 

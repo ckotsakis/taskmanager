@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Task = props => {
     return (
@@ -7,7 +8,7 @@ const Task = props => {
             <div className="card-body">
                 <h5 className="card-title">Do something quickly...
                     <div className="dropdown pull-right">
-                        <button className="btn btn-secondary btn-sm btn-light grey" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">x</button>
+                        <button className="btn btn-secondary btn-sm btn-light grey" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><FontAwesomeIcon icon={["fas","ellipsis-v"]}/></button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <li><button className="dropdown-item" type="button">Edit Task</button></li>
                             <li><button className="dropdown-item" type="button">Change Status</button></li>
