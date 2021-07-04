@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Task from './components/task';
+import TaskList from './components/TaskList';
 import Nav from './components/nav';
 import SearchBar from './components/SearchBar';
 
@@ -15,8 +16,16 @@ library.add(fab,fas);
 
 class App extends React.Component {
 
-  
-  
+  state = {data: null}
+
+
+  componentDidMount = async () => {
+    const response = await axios.get('http://192.168.1.8:8080/taskmanager', {
+    });
+    //console.log(response.data);
+    this.setState({data: response.data});
+  }
+
   render() {
     return (
       <div>
@@ -32,7 +41,7 @@ class App extends React.Component {
               <hr/>
               <SearchBar/>
               <br/>
-              <Task/>
+              <TaskList tasks={this.state.data}/>
             </div>
             <div className="col-sm-4">
            
