@@ -2,11 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Task = props => {
+    console.log(props.task._id);
     return (
-
         <div className="card mb-3">
             <div className="card-body">
-                <h5 className="card-title">Do something quickly...
+                <h5 className="card-title">{props.task.taskName}
                     <div className="dropdown pull-right">
                         <button className="btn btn-secondary btn-sm btn-light grey" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><FontAwesomeIcon icon={["fas","ellipsis-v"]}/></button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -17,16 +17,19 @@ const Task = props => {
                         </ul>
                     </div>
                 </h5>
-                <p className="card-text grey">Here is some text for this task. I hope you can get it sorted out in the next few days.</p>
-                <div className="taskinfo">10/02/2021 <span className="category">Work</span></div>
+                <p className="card-text grey">{props.task.taskDescription}</p>
+                <div className="taskinfo">{props.task.dueDate}  {props.task.category == '' ? <span className="category">{props.task.category}</span> : null}
+                </div>
+                
                 
             </div>
             <div className="card-footer text-muted">
                 <small className="text-muted">Last updated 3 mins ago by Me</small>
             </div>
         </div>
-
     )
-}
+        
+
+};
 
 export default Task;
