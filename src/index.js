@@ -6,12 +6,11 @@ import TaskList from './components/TaskList';
 import Nav from './components/nav';
 import SearchBar from './components/SearchBar';
 import ChartStats from './components/ChartStats';
+import Calendar from './components/Calendar';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-
-import moment from 'moment';
 
 
 //Create the library
@@ -37,7 +36,9 @@ class App extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-sm-3">
-              Column 1
+              <Calendar advance="0" />
+              <Calendar advance="1" />
+              
             </div>
             <div className="col-sm-5">
               <h3>Tasks</h3>

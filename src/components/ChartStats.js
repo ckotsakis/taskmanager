@@ -47,10 +47,10 @@ class ChartStats extends React.Component {
     render() {
         return (
 
-            <div class="statswidget">
-            <div class="sectiontitle">Weekly Stats</div>
-            <div class="row">
-                <div class="col-9">
+            <div className="statswidget">
+            <div className="sectiontitle">Weekly Stats</div>
+            <div className="row">
+                <div className="col-9">
                     <div id="chart">
                         <Chart 
                             options={this.state.options} 
@@ -60,19 +60,19 @@ class ChartStats extends React.Component {
                         />
                     </div>       
                 </div>
-                <div class="col-2">
-                    <div class="sidestats">
-                        <div class="sidestat top">
-                            <div class="stattitle">4</div>
-                            <div class="statsubtitle">To Do</div>
+                <div className="col-2">
+                    <div className="sidestats">
+                        <div className="sidestat top">
+                            <div className="stattitle">4</div>
+                            <div className="statsubtitle">To Do</div>
                         </div>
-                        <div class="sidestat">
-                            <div class="stattitle">2</div>
-                            <div class="statsubtitle">Late</div>
+                        <div className="sidestat">
+                            <div className="stattitle">2</div>
+                            <div className="statsubtitle">Late</div>
                         </div>
-                        <div class="sidestat bottom">
-                            <div class="stattitle">8</div>
-                            <div class="statsubtitle">Done</div>
+                        <div className="sidestat bottom">
+                            <div className="stattitle">8</div>
+                            <div className="statsubtitle">Done</div>
                         </div>
                     </div>
                 </div>

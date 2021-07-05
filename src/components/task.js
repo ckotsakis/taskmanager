@@ -18,7 +18,7 @@ const Task = props => {
                     </div>
                 </h5>
                 <p className="card-text grey">{props.task.taskDescription}</p>
-                <div className="taskinfo">{props.task.dueDate}  {(props.task.category != null) ? <span className="category">{props.task.category}</span>: <div/>}
+                <div className="taskinfo">{props.task.createdOn.$date}  {(props.task.category != null) ? <span className="category">{props.task.category}</span>: <div/>}
                 </div>
                 
                 
