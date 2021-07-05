@@ -5,6 +5,7 @@ import Task from './components/task';
 import TaskList from './components/TaskList';
 import Nav from './components/nav';
 import SearchBar from './components/SearchBar';
+import ChartStats from './components/ChartStats';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -17,7 +18,6 @@ library.add(fab,fas);
 class App extends React.Component {
 
   state = {data: null}
-
 
   componentDidMount = async () => {
     const response = await axios.get('http://192.168.1.8:8080/taskmanager', {
@@ -44,7 +44,8 @@ class App extends React.Component {
               <TaskList tasks={this.state.data}/>
             </div>
             <div className="col-sm-4">
-           
+              <ChartStats/>
+              <ChartStats/>
             </div>
           </div>
 
