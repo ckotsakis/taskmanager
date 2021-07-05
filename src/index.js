@@ -11,6 +11,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
+import moment from 'moment';
+
 
 //Create the library
 library.add(fab,fas);
@@ -24,6 +26,7 @@ class App extends React.Component {
     });
     //console.log(response.data);
     this.setState({data: response.data});
+    
   }
 
   render() {
