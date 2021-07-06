@@ -7,9 +7,10 @@ import Nav from './components/nav';
 import SearchBar from './components/SearchBar';
 import ChartStats from './components/ChartStats';
 import Calendar from './components/Calendar';
+import Welcome from './components/Welcome';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fab, faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -18,13 +19,19 @@ library.add(fab,fas);
 
 class App extends React.Component {
 
-  state = {data: null}
+  state = {data: null, statsdata: null}
 
   componentDidMount = async () => {
     const response = await axios.get('http://192.168.1.8:8080/taskmanager', {
     });
-    //console.log(response.data);
+
+   const response2 = await axios.get('http://192.168.1.8:8080/taskmanager/snippet', {});
+    //console.log(response2.data);
+
     this.setState({data: response.data});
+    this.setState({statsdata: response2.data});
+
+    console.log(this.state.statsdata["left"]);
     
   }
 
@@ -36,6 +43,7 @@ class App extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-sm-3">
+              <Welcome data={this.state.statsdata}/>
               <Calendar advance="0" />
               <Calendar advance="1" />
               
