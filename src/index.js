@@ -19,20 +19,42 @@ library.add(fab,fas);
 
 class App extends React.Component {
 
-  state = {data: null, statsdata: null}
+  state = {data: null, statsdata: null, taskupdate: ''}
 
   componentDidMount = async () => {
-    const response = await axios.get('http://192.168.1.8:8080/taskmanager', {
-    });
 
-   const response2 = await axios.get('http://192.168.1.8:8080/taskmanager/snippet', {});
+    const response = await axios.get('http://192.168.1.8:8080/taskmanager', {});
+
+    const response2 = await axios.get('http://192.168.1.8:8080/taskmanager/snippet', {});
     //console.log(response2.data);
 
     this.setState({data: response.data});
     this.setState({statsdata: response2.data});
 
-    console.log(this.state.statsdata["left"]);
-    
+  }
+
+  componentDidUpdate() {
+    console.log("App Component has been updated...");
+
+
+  }
+
+  onSearchBarSubmit = async (param) => {
+    console.log(param);
+    const task = { "taskName": "This should be my second one???",
+    "taskDescription": "Did this refresh in the system? This is some body data for the task",
+    "dueDate": "08/01/2021",
+    "status": "2",
+    "priority":"2",
+    "category":"React",
+    "createdBy": "Chris" };
+    const postresp = await axios.post('http://192.168.1.8:8080/taskmanager', task);
+
+    //this.setState({taskupdate: 'please refresh'});
+
+    const response = await axios.get('http://192.168.1.8:8080/taskmanager', {});
+    this.setState({data: response.data});
+
   }
 
   render() {
@@ -51,7 +73,7 @@ class App extends React.Component {
             <div className="col-sm-5">
               <h3>Tasks</h3>
               <hr/>
-              <SearchBar/>
+              <SearchBar onSubmit={this.onSearchBarSubmit}/>
               <br/>
               <TaskList tasks={this.state.data}/>
             </div>

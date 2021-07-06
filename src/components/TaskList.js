@@ -8,7 +8,7 @@ const TaskList = props => {
         const taskCards = props.tasks.map(task => {
             console.log(task.taskName);
             return (
-                <Task key={task._id} task={task}/>
+                <Task key={task._id.$oid} task={task}/>
             )
         });
         return <div>{taskCards}</div>
