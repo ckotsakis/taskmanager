@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DatePicker from 'react-datepicker';
+import Moment from "moment";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,7 +11,7 @@ class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {taskname: '', duedate: new Date()};
+        this.state = {taskName: '', taskDescrption:'', category: '', dueDate: new Date()};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
@@ -22,29 +23,38 @@ class SearchBar extends React.Component {
 
         event.preventDefault();
         
+        this.props.onSubmit(this.state);
 
-        this.props.onSubmit(this.state.taskname);
+       this.setState({taskName: '', taskDescrption: ''});
         //this.props.onSubmit("omg it worked?");
 
     }
 
     handleDateChange(date) {
-        //console.log(event);
-        this.setState({duedate: date});
+        console.log(date);
+
+        //const strdate = Moment(date).format("MM/DD/yyyy");
+        console.log(Moment(date).format("MM/DD/yyyy"));
+
+        this.setState({dueDate: date});
+
+        //this.setState({dueDate: new Date()});
 
         //console.log(this.state.duedate);
     }
+
 
     handleChange(event) {
 
         const target = event.target;
         //const value = target.type === 'checkbox' ? target.checked : target.value;
-        //const name = target.name;
+        const name = event.target.name;
 
         //this.setState({[name]: value});
 
-        //console.log(event.target.name);
-        //this.setState({taskname: event.target.value});
+        console.log(event.target.name);
+        console.log(event.target.value);
+        this.setState({[name]: event.target.value});
     }
 
 
@@ -76,7 +86,7 @@ class SearchBar extends React.Component {
                                 <div className="modal-body">
                                     <div className="mb-3">
                                         <label for="taskName" className="form-label">Task Title</label>
-                                        <input type="text" className="form-control" id="taskName" name="taskName" aria-describedby="taskHelp" onChange={this.handleChange} />
+                                        <input type="text" className="form-control" id="taskName" name="taskName" aria-describedby="taskHelp" onChange={this.handleChange} value={this.state.taskName} />
                                         <div id="taskHelp" className="form-text">Provide a title for your task</div>
                                     </div>
                                     <div className="mb-3">
@@ -92,10 +102,10 @@ class SearchBar extends React.Component {
                                     <div class="mb-3">
                                         <label for="dueDate" className="form-label">Due Date</label>
                                         <DatePicker
-                                            selected={ this.state.startDate }
+                                            selected={ this.state.dueDate }
                                             wrapperClassName="datePicker"
                                             className="form-control"
-                                            dateFormat="dd/MM/yyyy"
+                                            dateFormat="MM/dd/yyyy"
                                             name="dueDate"
                                             onChange={this.handleDateChange}
                                         />

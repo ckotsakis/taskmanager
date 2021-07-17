@@ -9,6 +9,8 @@ import ChartStats from './components/ChartStats';
 import Calendar from './components/Calendar';
 import Welcome from './components/Welcome';
 
+import Moment from 'moment';
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab, faThinkPeaks } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -40,14 +42,15 @@ class App extends React.Component {
   }
 
   onSearchBarSubmit = async (param) => {
-    console.log("is this working? " + param);
+    console.log("is this working? " + param.taskName);
 
-    const task = { "taskName": param,
-    "taskDescription": "Did this refresh in the system? This is some body data for the task",
-    "dueDate": "08/01/2021",
+  
+    const task = { "taskName": param.taskName,
+    "taskDescription": param.taskDescription,
+    "dueDate": Moment(param.dueDate).format("MM/DD/yyyy"),
     "status": "2",
     "priority":"2",
-    "category":"React",
+    "category": param.category,
     "createdBy": "Chris" };
 
     const postresp = await axios.post('http://192.168.1.8:8080/taskmanager', task);
@@ -56,6 +59,7 @@ class App extends React.Component {
 
     const response = await axios.get('http://192.168.1.8:8080/taskmanager', {});
     this.setState({data: response.data});
+    
 
   }
 
