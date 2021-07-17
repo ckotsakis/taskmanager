@@ -32,6 +32,7 @@ class App extends React.Component {
 
     this.setState({data: response.data});
     this.setState({statsdata: response2.data});
+    
 
   }
 
@@ -45,13 +46,13 @@ class App extends React.Component {
     console.log("is this working? " + param.taskName);
 
   
-    const task = { "taskName": param.taskName,
-    "taskDescription": param.taskDescription,
-    "dueDate": Moment(param.dueDate).format("MM/DD/yyyy"),
-    "status": "2",
-    "priority":"2",
-    "category": param.category,
-    "createdBy": "Chris" };
+    const task = {  "taskName": param.taskName,
+                    "taskDescription": param.taskDescription,
+                    "dueDate": Moment(param.dueDate).format("MM/DD/yyyy"),
+                    "status": "1",
+                    "priority": param.priority,
+                    "category": param.category,
+                    "createdBy": "Chris" };
 
     const postresp = await axios.post('http://192.168.1.8:8080/taskmanager', task);
 

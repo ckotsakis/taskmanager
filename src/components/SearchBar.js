@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {taskName: '', taskDescrption:'', category: '', dueDate: new Date()};
+        this.state = {taskName: '', taskDescrption:'', category: '', priority: '0', dueDate: new Date()};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
@@ -20,26 +20,17 @@ class SearchBar extends React.Component {
     
 
     onFormSubmit = event => {
-
         event.preventDefault();
-        
         this.props.onSubmit(this.state);
-
-       this.setState({taskName: '', taskDescrption: ''});
-        //this.props.onSubmit("omg it worked?");
-
+        this.setState({taskName: '', taskDescrption: ''});
     }
 
     handleDateChange(date) {
-        console.log(date);
-
+        //console.log(date);
         //const strdate = Moment(date).format("MM/DD/yyyy");
-        console.log(Moment(date).format("MM/DD/yyyy"));
-
+        //console.log(Moment(date).format("MM/DD/yyyy"));
         this.setState({dueDate: date});
-
         //this.setState({dueDate: new Date()});
-
         //console.log(this.state.duedate);
     }
 
@@ -49,12 +40,11 @@ class SearchBar extends React.Component {
         const target = event.target;
         //const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = event.target.name;
-
         //this.setState({[name]: value});
-
         console.log(event.target.name);
         console.log(event.target.value);
         this.setState({[name]: event.target.value});
+
     }
 
 
@@ -63,6 +53,7 @@ class SearchBar extends React.Component {
 
         return (
             <div>
+
             
                 <table width="100%">
                     <tbody>
@@ -99,7 +90,7 @@ class SearchBar extends React.Component {
                                         <input type="text" className="form-control" id="category" name="category" aria-describedby="categoryHelp" onChange={this.handleChange}/>
                                         <div id="categoryHelp" className="form-text">Categorize your task</div>
                                     </div>
-                                    <div class="mb-3">
+                                    <div className="mb-3">
                                         <label for="dueDate" className="form-label">Due Date</label>
                                         <DatePicker
                                             selected={ this.state.dueDate }
@@ -117,8 +108,9 @@ class SearchBar extends React.Component {
                                             <option value="0" selected>Low</option>
                                             <option value="1">Medium</option>
                                             <option value="2">High</option>
+                                            <option value="3"></option>
                                         </select>
-                                        <div id="priorityhelp" class="form-text">Set the priority</div>
+                                        <div id="priorityhelp" className="form-text">Set the priority</div>
                                     </div>
                                 </div>
                                 <div className="modal-footer">
