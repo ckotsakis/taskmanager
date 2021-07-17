@@ -40,14 +40,16 @@ class App extends React.Component {
   }
 
   onSearchBarSubmit = async (param) => {
-    console.log(param);
-    const task = { "taskName": "This should be my second one???",
+    console.log("is this working? " + param);
+
+    const task = { "taskName": param,
     "taskDescription": "Did this refresh in the system? This is some body data for the task",
     "dueDate": "08/01/2021",
     "status": "2",
     "priority":"2",
     "category":"React",
     "createdBy": "Chris" };
+
     const postresp = await axios.post('http://192.168.1.8:8080/taskmanager', task);
 
     //this.setState({taskupdate: 'please refresh'});
@@ -75,6 +77,7 @@ class App extends React.Component {
               <hr/>
               <SearchBar onSubmit={this.onSearchBarSubmit}/>
               <br/>
+              <div class="sectiontitle">Today</div>
               <TaskList tasks={this.state.data}/>
             </div>
             <div className="col-sm-4">

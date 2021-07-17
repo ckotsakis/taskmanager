@@ -306,6 +306,10 @@ ul.menuitem a {
     font-size: 10pt;
 }
 
+.datePicker {
+    display: block;
+    width: 100%;
+}
 
 
 
