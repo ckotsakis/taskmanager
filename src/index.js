@@ -82,7 +82,6 @@ class App extends React.Component {
               <hr/>
               <SearchBar onSubmit={this.onSearchBarSubmit}/>
               <br/>
-              <div class="sectiontitle">Today</div>
               <TaskList tasks={this.state.data}/>
             </div>
             <div className="col-sm-4">
