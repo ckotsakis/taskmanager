@@ -28,7 +28,7 @@ class App extends React.Component {
     const response = await axios.get('http://192.168.1.8:8080/taskmanager', {});
 
     const response2 = await axios.get('http://192.168.1.8:8080/taskmanager/snippet', {});
-    //console.log(response2.data);
+    console.log(response2.data);
 
     this.setState({data: response.data});
     this.setState({statsdata: response2.data});
@@ -84,9 +84,8 @@ class App extends React.Component {
               <br/>
               <TaskList tasks={this.state.data}/>
             </div>
-            <div className="col-sm-4">
-              <ChartStats/>
-              <ChartStats/>
+            <div className="col-sm-4">  
+              <ChartStats data={this.state.statsdata}/>
             </div>
           </div>
 

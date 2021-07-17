@@ -3,8 +3,11 @@ import Chart from "react-apexcharts";
 
 class ChartStats extends React.Component {
 
+
     constructor(props) {
         super(props);
+
+        console.log(props.data)
 
         this.state = {
             series: [80],
@@ -41,10 +44,19 @@ class ChartStats extends React.Component {
                 labels:['4'],
             },
         };
-
+        
+        
     }
     
     render() {
+
+        /*
+        if(this.props.data == null) {
+            return(<div></div>);
+        }
+        */
+
+
         return (
 
             <div className="statswidget">
@@ -63,15 +75,15 @@ class ChartStats extends React.Component {
                 <div className="col-2">
                     <div className="sidestats">
                         <div className="sidestat top">
-                            <div className="stattitle">4</div>
+                            <div className="stattitle">5</div>
                             <div className="statsubtitle">To Do</div>
                         </div>
                         <div className="sidestat">
-                            <div className="stattitle">2</div>
+                            <div className="stattitle">5</div>
                             <div className="statsubtitle">Late</div>
                         </div>
                         <div className="sidestat bottom">
-                            <div className="stattitle">8</div>
+                            <div className="stattitle">5</div>
                             <div className="statsubtitle">Done</div>
                         </div>
                     </div>
