@@ -31,7 +31,7 @@ const TaskList = props => {
             } 
 
             //console.log(a.diff(b, 'days'));
-            console.log(diff);
+            //console.log(diff);
             //console.log(moment(task.dueDate).format("MM/DD/YYYY"));
 
             return (

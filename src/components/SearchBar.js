@@ -41,8 +41,8 @@ class SearchBar extends React.Component {
         //const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = event.target.name;
         //this.setState({[name]: value});
-        console.log(event.target.name);
-        console.log(event.target.value);
+        //console.log(event.target.name);
+        //console.log(event.target.value);
         this.setState({[name]: event.target.value});
 
     }

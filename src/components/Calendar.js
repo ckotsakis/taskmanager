@@ -96,7 +96,7 @@ class Calendar extends React.Component {
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let className = "day";
-            console.log("advanvce", this.props.advance);
+            //console.log("advanvce", this.props.advance);
             
             if (this.props.advance != 0) {
                 className = "day";

@@ -28,7 +28,7 @@ class App extends React.Component {
     const response = await axios.get('http://192.168.1.8:8080/taskmanager', {});
 
     const response2 = await axios.get('http://192.168.1.8:8080/taskmanager/snippet', {});
-    console.log(response2.data);
+    //console.log(response2.data);
 
     this.setState({data: response.data});
     this.setState({statsdata: response2.data});
@@ -43,9 +43,7 @@ class App extends React.Component {
   }
 
   onSearchBarSubmit = async (param) => {
-    console.log("is this working? " + param.taskName);
-
-  
+    
     const task = {  "taskName": param.taskName,
                     "taskDescription": param.taskDescription,
                     "dueDate": Moment(param.dueDate).format("MM/DD/yyyy"),
@@ -60,6 +58,9 @@ class App extends React.Component {
 
     const response = await axios.get('http://192.168.1.8:8080/taskmanager', {});
     this.setState({data: response.data});
+
+    const response2 = await axios.get('http://192.168.1.8:8080/taskmanager/snippet', {});
+    this.setState({statsdata: response2.data});
     
 
   }

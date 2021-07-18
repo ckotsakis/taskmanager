@@ -10,12 +10,7 @@ class Welcome extends React.Component {
     constructor(props) {
         super(props);
         //this.state.left = props.stats.left;
-        if (props.data != null) {
-            console.log(props.data["left"]);
-        } else {
-            console.log("we got a null");
-        }
-
+    
         this.state.left = 5;
     }
 
